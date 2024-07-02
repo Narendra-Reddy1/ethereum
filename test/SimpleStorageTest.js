@@ -11,14 +11,14 @@ describe("SimpleStorage", function () {
         simpleStorage = await contractFactory.deploy();
     })
     it("Should start with initial values of 0", async () => {
-        const expectedValue = "23230";
+        const expectedValue = "0";
         const currentValue = await simpleStorage.retrieve();
         expect(currentValue.toString()).to.equal(expectedValue);
     })
 
     it("Should store the given value", function (done) {
         const valueToStore = "9999";
-        simpleStorage.store("8").then(() => {
+        simpleStorage.store(valueToStore).then(() => {
             return simpleStorage.retrieve();
         }).then((result) => {
 
