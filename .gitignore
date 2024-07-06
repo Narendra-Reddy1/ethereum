@@ -133,3 +133,6 @@ dist
 #own files
 gas-report.txt
 coverage.json
+artifacts
+cache
+deploymetns
