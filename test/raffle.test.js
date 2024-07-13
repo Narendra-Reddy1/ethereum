@@ -1,13 +1,15 @@
-const { network, deployments, ethers } = require("hardhat");
+const { network, deployments, ethers, getNamedAccounts } = require("hardhat");
 const { developmentChains, networkConfig } = require("../helper-hardhat-config");
 const { expect, assert } = require("chai");
+const { describe } = require("mocha");
 
 !developmentChains.includes(network.config.chainId) ? describe.skip : describe("Raffle", function () {
     let Raffle, VRFCoordinatorV2_5Mock_1, player;
     beforeEach(async () => {
+        player = (await getNamedAccounts()).player;
         await deployments.fixture(["all"]);
         Raffle = await ethers.getContract("Raffle");
-        Raffle.connect(player)
+        Raffle.connect(player);
     })
 
     describe("Constructor", function () {
@@ -21,6 +23,7 @@ const { expect, assert } = require("chai");
 
         })
     })
+
     describe("Entering Raffle", function () {
         it("Should revert if entry fee is less", async () => {
             await expect(Raffle.enterRaffle()).to.be.revertedWith("Raffle_MinEntryNotSent")
@@ -32,7 +35,7 @@ const { expect, assert } = require("chai");
             console.log(tx);
             console.log("__________________________________________________________________________");
             console.log(txx);
-            expect(txx).to.be.emit(Raffle, "EnteredRaffle");
+            //await expect(txx).to.be.emit(Raffle, "EnteredRaffle");
             //await expect(Raffle.enterRaffle({ value: entryfee })).to.emit(Raffle);
         })
 

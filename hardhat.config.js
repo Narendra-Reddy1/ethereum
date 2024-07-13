@@ -1,11 +1,11 @@
-require("@nomiclabs/hardhat-waffle")
+//require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-etherscan")
 require("solidity-coverage")
 require("hardhat-gas-reporter")
-require("hardhat-contract-sizer")
+//require("hardhat-contract-sizer")
 require("dotenv").config()
-require("hardhat-deploy")
-require("ethereum-waffle")
+//require("hardhat-deploy")
+//require("ethereum-waffle")
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
