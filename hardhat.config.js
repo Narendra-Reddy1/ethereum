@@ -5,6 +5,7 @@ require("hardhat-deploy")
 require("@nomiclabs/hardhat-ethers")
 
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
+const AMOY_RPC_URL = process.env.AMOY_RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const COIN_MARKET_API = process.env.COIN_MARKET_API;
@@ -33,7 +34,7 @@ module.exports = {
 
     },
     amoy: {
-      url: "https://polygon-amoy.g.alchemy.com/v2/TrCTSAqqzM_7LMlQWy2eYk4n3T52oXVm",
+      url:AMOY_RPC_URL,
       chainId: 80002,
       accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"]
     },
